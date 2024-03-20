@@ -3,6 +3,11 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 
 import typeDefs from "../src/graphql/types/index.js";
 import resolvers from "../src/graphql/resolvers/index.js";
+import { User } from '../src/db/index.js';
+
+const users = await User.findAll()
+
+console.log(users);
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({
